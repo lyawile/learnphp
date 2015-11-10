@@ -1,0 +1,174 @@
+Microsoft Windows [Version 6.3.9600]
+(c) 2013 Microsoft Corporation. All rights reserved.
+
+C:\windows\system32>cd\
+
+C:\>cd xampp_latest
+
+C:\xampp_latest>cd mysql\bin
+
+C:\xampp_latest\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 41
+Server version: 5.6.21 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| cdcol              |
+| csv_db             |
+| data               |
+| formtwoextras      |
+| homemis            |
+| library            |
+| mkulima            |
+| mtiss_db           |
+| mysql              |
+| necta              |
+| performance_schema |
+| phpmyadmin         |
+| sfne               |
+| test               |
+| webauth            |
++--------------------+
+16 rows in set (0.00 sec)
+
+mysql> use mtiss_db
+Database changed
+mysql> show tables;
++------------------------+
+| Tables_in_mtiss_db     |
++------------------------+
+| stream                 |
+| student                |
+| student_takes_subjects |
+| subject                |
+| teacher                |
+| teacher_has_class      |
+| time                   |
+| user                   |
++------------------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from student;
++----+-----------+-----------+------------+----------+
+| id | regNumber | firstname | middlename | surname  |
++----+-----------+-----------+------------+----------+
+|  5 | 205       | Twalib    | Athuman    |  Jumanne |
+|  6 | 215       | Samia     | Saidi      | Hoza     |
+|  7 | 216       |  Saidi    | Likongo    | Likongo  |
+|  8 | 120       |  Saidi    | Likongo    | Likongo  |
+|  9 | 121       |  Saidi    | Likongo    | Likongo  |
+| 10 | 122       |  Saidi    | Likongo    | Likongo  |
+| 11 | 125       |  Saidi    | Likongo    | Likongo  |
+| 12 | 3         |  Saidi    | Likongo    | Likongo  |
+| 13 | 2         |  Saidi    | Likongo    | Likongo  |
+| 14 | 4         |  Saidi    | Likongo    | Likongo  |
+| 15 | 45        |  Saidi    | Likongo    | Likongo  |
++----+-----------+-----------+------------+----------+
+11 rows in set (0.00 sec)
+
+mysql> select regNumber, surname from student;
++-----------+----------+
+| regNumber | surname  |
++-----------+----------+
+| 205       |  Jumanne |
+| 215       | Hoza     |
+| 216       | Likongo  |
+| 120       | Likongo  |
+| 121       | Likongo  |
+| 122       | Likongo  |
+| 125       | Likongo  |
+| 3         | Likongo  |
+| 2         | Likongo  |
+| 4         | Likongo  |
+| 45        | Likongo  |
++-----------+----------+
+11 rows in set (0.00 sec)
+
+mysql> create table location (
+    -> id int(4)  auto_increment primary key,
+    -> city varchar(40) not null,
+    -> country varchar(40) not null);
+Query OK, 0 rows affected (0.46 sec)
+
+mysql> insert into location(city,country)
+    -> values ('Arusha','Tanzania');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from location;
++----+--------+----------+
+| id | city   | country  |
++----+--------+----------+
+|  1 | Arusha | Tanzania |
++----+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> insert into location(city,country)
+    -> values ('Mtwara','Tanzania'),('Dodoma','Tanzania');
+Query OK, 2 rows affected (0.08 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from location;
++----+--------+----------+
+| id | city   | country  |
++----+--------+----------+
+|  1 | Arusha | Tanzania |
+|  2 | Mtwara | Tanzania |
+|  3 | Dodoma | Tanzania |
++----+--------+----------+
+3 rows in set (0.00 sec)
+
+Log out from the currently logged in user
+mysql> exit
+Bye
+
+C:\xampp_latest\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 66
+Server version: 5.6.21 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+Create a database hotel_db 
+mysql> create database hotel_db;
+Query OK, 1 row affected (0.00 sec)
+create a new customer table
+mysql> create table customer (
+    -> id int(5) auto_increment primary key,
+    -> firstname varchar(40) not null,
+    -> middlename varchar(40) not null,
+    -> surname varchar(40) not null);
+Query OK, 0 rows affected (0.31 sec)
+
+see the customer table structure 
+mysql> describe customer;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int(5)      | NO   | PRI | NULL    | auto_increment |
+| firstname  | varchar(40) | NO   |     | NULL    |                |
+| middlename | varchar(40) | NO   |     | NULL    |                |
+| surname    | varchar(40) | NO   |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+mysql>

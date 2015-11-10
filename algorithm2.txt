@@ -1,0 +1,7 @@
+if startDate is less than the current date and the endDate is greater than or equal to current date = 1
+12  <  17 and 20 >= 17 
++ve and -ve TRUE
+
+datediff(date(now()),$startDate) >= 0 and datadiff(date(now()),$endDate) <= 0
+if the difference between the startDate and endDate is greater than or equal to one and the current date is less than or equal to endDate = 1 
+12 - 16

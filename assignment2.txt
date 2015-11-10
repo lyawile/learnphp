@@ -1,0 +1,11 @@
+create a table in the hotel_db table called user and add the following columns:
+     id with int type, primary key auto_increment,
+     fullName with varchar(40), not null,
+     username with  varchar(20) not null,
+     password with varchar(40) not null, this should be hashed with md5 for security
+during login, the system should read the username and password to authenticate the user.
+prevent MySQL injection in login page 
+
+     
+
+     
